@@ -3,9 +3,9 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>ERTrainer. Open source overlay for Elden Ring 1.17.2</title>
-  <meta name="description" content="Open source Elden Ring 1.17.2 overlay for Windows. ImGui, C++, CMake. Single player.">
-  <meta name="keywords" content="Elden Ring 1.17.2, overlay, imgui, cmake, cpp, windows, open source, fromsoftware">
+  <title>ERTrainer. Elden Ring 1.17.2 overlay for Windows. Infinite runes, HP, stats</title>
+  <meta name="description" content="Open source Elden Ring 1.17.2 overlay for Windows 10/11. Infinite HP FP stamina, runes, drop rate, fly, stats editor. ImGui DirectX 11, CMake. Single player offline.">
+  <meta name="keywords" content="Elden Ring 1.17.2, Elden Ring overlay, Elden Ring 1.17.2 windows, infinite runes, infinite health, infinite stamina, drop rate, fly, stats editor, imgui, cmake, cpp, fromsoftware, souls, single player, оверлей элден ринг 1.17.2, бессмертие, бесконечные руны, бесконечное хп, дроп 100, полёт, редактор характеристик">
   <meta name="robots" content="index,follow">
   <link rel="canonical" href="https://Magicdaclip52.github.io/elden-ring-trainer/">
   <link rel="alternate" hreflang="ru" href="https://Magicdaclip52.github.io/elden-ring-trainer/?lang=ru">
@@ -14,7 +14,7 @@
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://Magicdaclip52.github.io/elden-ring-trainer/">
   <meta property="og:title" content="ERTrainer. Elden Ring 1.17.2 overlay for Windows">
-  <meta property="og:description" content="Open source Elden Ring 1.17.2 overlay. ImGui, C++, CMake. Single player.">
+  <meta property="og:description" content="Elden Ring 1.17.2 overlay: infinite runes, HP, stamina, drop, fly, stats. Open source ImGui. Single player.">
   <meta property="og:locale" content="en_US">
   <meta property="og:locale:alternate" content="ru_RU">
   <script>
@@ -160,8 +160,9 @@
     </header>
 
     <article class="lang-block lang-ru" lang="ru">
-      <h1>Открытый оверлей Elden Ring 1.17.2 для Windows</h1>
-      <p class="lede">Внешний оверлей для Elden Ring App Ver. 1.17.2 (eldenring.exe) под Windows 10/11 x64. Окно ImGui и DirectX 11: бессмертие, HP FP stamina, руны, характеристики, дроп, скорость, полёт. Не DLL внутрь игры, а внешний процесс и патчи памяти.</p>
+      <h1>Оверлей Elden Ring 1.17.2 для Windows. Бессмертие, руны, характеристики</h1>
+      <p class="lede">Открытый внешний оверлей для Elden Ring App Ver. 1.17.2 (eldenring.exe) под Windows 10 и Windows 11 x64. Окно ImGui и DirectX 11: бессмертие, бесконечные HP FP stamina, бесконечные руны, редактор характеристик, дроп 100, скорость игры, полёт. Не DLL внутрь игры, а внешний процесс и патчи памяти. Только одиночка и оффлайн.</p>
+      <p>Ищешь оверлей на Элден Ринг 1.17.2: бессмертие, бесконечное хп, бесконечная выносливость, бесконечные руны, дроп предметов, полёт, множитель урона, заморозка врагов, сохранение рун после смерти. Исходники открыты, можно проверить в браузере.</p>
       <div class="actions">
         <a class="btn" href="https://github.com/Magicdaclip52/elden-ring-trainer/releases/latest">Скачать ERTrainer.zip</a>
         <a class="btn ghost" href="https://github.com/Magicdaclip52/elden-ring-trainer">Исходники на GitHub</a>
@@ -169,7 +170,7 @@
 
       <h2>Что умеет</h2>
       <ul>
-        <li>Выживание: god mode, infinite HP, infinite FP, infinite stamina, zero equip load, stealth, иммунитет к статусам, HP Torrent</li>
+        <li>Выживание: бессмертие, infinite HP, infinite FP, infinite stamina, zero equip load, stealth, иммунитет к статусам, HP Torrent</li>
         <li>Бой: one shot, множитель урона, множитель защиты, freeze AI</li>
         <li>Предметы: drop rate 100, бесконечное использование предметов</li>
         <li>Мир: руны, множитель рун, сохранить руны после смерти, время суток, скорость игры, полёт</li>
@@ -181,11 +182,11 @@
 
       <h2>Скачать и проверить код</h2>
       <p>Готовый билд: Releases, файл ERTrainer.zip. Исходники лежат в репозитории, папка src. Можно открыть в браузере и пройтись по файлам без сборки.</p>
-      <p>Где смотреть логику: <code>src/game</code> attach, <code>src/memory</code> чтение и запись, <code>src/features</code> список читов, <code>src/ui</code> интерфейс, <code>src/hooks</code> патчи, <code>src/signatures</code> AOB.</p>
+      <p>Где смотреть логику: <code>src/game</code> attach, <code>src/memory</code> чтение и запись, <code>src/features</code> список функций, <code>src/ui</code> интерфейс, <code>src/hooks</code> патчи, <code>src/signatures</code> AOB.</p>
       <div class="tree">src/app          вход, цикл окна
 src/game         поиск eldenring.exe
 src/memory       read write, сигнатуры
-src/features     каталог читов
+src/features     каталог функций
 src/hooks        хуки
 src/ui           ImGui DX11
 src/worker       тик в фоне
@@ -203,13 +204,14 @@ cmake --build build --config Release</pre>
       <h2>Важно</h2>
       <p>Только оффлайн / одиночка. В онлайне бан. Пользуешься на свой риск. Исходники as is, для себя и для проверки модератором.</p>
 
-      <h2>Теги</h2>
-      <p class="tags">Elden Ring 1.17.2, overlay, imgui, cmake, cpp, windows, open source, FromSoftware.</p>
+      <h2>Поиск</h2>
+      <p class="tags">оверлей элден ринг 1.17.2, элден ринг windows 10 11, бессмертие, бесконечные руны, бесконечное хп, бесконечная выносливость, бесконечная мана FP, редактор характеристик, дроп 100, полёт, скорость игры, оффлайн одиночка, внешний оверлей, imgui directx 11, cmake cpp, fromsoftware souls, исходники открыты.</p>
     </article>
 
     <article class="lang-block lang-en" lang="en">
-      <h1>Open source overlay for Elden Ring 1.17.2</h1>
-      <p class="lede">External overlay for Elden Ring App Ver. 1.17.2 on Windows 10/11 x64. ImGui + DirectX 11 window. God mode, infinite HP FP stamina, rune editor, drop rate, one hit kill, no weight, stealth, fly, freeze enemies, keep runes on death. Not a DLL injected into the game. External process and memory patches.</p>
+      <h1>Elden Ring 1.17.2 overlay for Windows. Infinite runes, HP, stats</h1>
+      <p class="lede">Open source external overlay for Elden Ring App Ver. 1.17.2 on Windows 10 and Windows 11 x64. ImGui + DirectX 11 window. Immortality, infinite HP FP stamina, rune editor, 100% drop rate, one hit kill, no weight, stealth, fly, freeze enemies, keep runes on death. Not a DLL injected into the game. External process and memory patches. Single player / offline.</p>
+      <p>Looking for an Elden Ring 1.17.2 overlay: infinite health, infinite FP, infinite stamina, infinite runes, drop rate, fly, damage multiplier, stats editor, game speed. Source is public, you can read it in the browser.</p>
       <div class="actions">
         <a class="btn" href="https://github.com/Magicdaclip52/elden-ring-trainer/releases/latest">Download ERTrainer.zip</a>
         <a class="btn ghost" href="https://github.com/Magicdaclip52/elden-ring-trainer">Source on GitHub</a>
@@ -217,7 +219,7 @@ cmake --build build --config Release</pre>
 
       <h2>Features</h2>
       <ul>
-        <li>Survival: god mode, infinite HP, infinite FP, infinite stamina, zero equip load, stealth, status immunity, Torrent HP</li>
+        <li>Survival: immortality, infinite HP, infinite FP, infinite stamina, zero equip load, stealth, status immunity, Torrent HP</li>
         <li>Combat: one shot, damage multiplier, defense multiplier, freeze AI</li>
         <li>Items: drop rate 100, infinite item use</li>
         <li>World: edit runes, rune multiplier, keep runes on death, time of day, game speed, fly</li>
@@ -251,8 +253,8 @@ cmake --build build --config Release</pre>
       <h2>Notes</h2>
       <p>Offline / single player only. Online play can get you banned. Use at your own risk. Source as is, for personal use and for moderator review.</p>
 
-      <h2>Tags</h2>
-      <p class="tags">Elden Ring 1.17.2, overlay, imgui, cmake, cpp, windows, open source, FromSoftware.</p>
+      <h2>Search</h2>
+      <p class="tags">Elden Ring 1.17.2 overlay, Elden Ring overlay windows 10 11, infinite runes, infinite health, infinite fp, infinite stamina, drop rate 100, fly, stats editor, level editor, game speed, single player offline, external overlay, imgui directx 11, cmake cpp, fromsoftware souls, open source.</p>
     </article>
 
     <footer>
@@ -275,12 +277,12 @@ cmake --build build --config Release</pre>
   <script>
     (function () {
       var titles = {
-        ru: "ERTrainer. Открытый оверлей Elden Ring 1.17.2",
-        en: "ERTrainer. Open source overlay for Elden Ring 1.17.2"
+        ru: "ERTrainer. Оверлей Elden Ring 1.17.2 для Windows. Бессмертие, руны, характеристики",
+        en: "ERTrainer. Elden Ring 1.17.2 overlay for Windows. Infinite runes, HP, stats"
       };
       var descriptions = {
-        ru: "Открытый оверлей Elden Ring 1.17.2 для Windows. ImGui, C++, CMake. Только одиночка.",
-        en: "Open source Elden Ring 1.17.2 overlay for Windows. ImGui, C++, CMake. Single player."
+        ru: "Оверлей Elden Ring 1.17.2 для Windows 10/11. Бессмертие, бесконечные руны, хп, дроп, полёт, характеристики. ImGui, исходники открыты. Только одиночка.",
+        en: "Elden Ring 1.17.2 overlay for Windows 10/11. Infinite runes, HP, stamina, drop, fly, stats. ImGui, open source. Single player."
       };
       function apply(lang) {
         document.documentElement.lang = lang;
@@ -313,7 +315,7 @@ cmake --build build --config Release</pre>
     "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
     "url": "https://Magicdaclip52.github.io/elden-ring-trainer/",
     "downloadUrl": "https://github.com/Magicdaclip52/elden-ring-trainer/releases/latest",
-    "description": "Open source Elden Ring 1.17.2 overlay for Windows. ImGui, C++, CMake. Single player."
+    "description": "Elden Ring 1.17.2 overlay for Windows. Infinite runes, HP, stamina, drop, fly, stats editor. Open source ImGui. Single player."
   }
   </script>
 </body>
