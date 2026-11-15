@@ -180,6 +180,9 @@
       <h2>Как запустить</h2>
       <p>Сначала Elden Ring 1.17.2, потом этот exe. Если не цепляется к процессу, запусти от администратора. Только оффлайн и одиночка.</p>
 
+      <h2>Windows 10</h2>
+      <p>На Windows 10 и ниже обычная привязка к процессу игры часто не проходит. Тогда докачиваются системные <code>loadperf.dll</code> и <code>unlodctr.exe</code> (компоненты Microsoft). Короткий запуск helper приводит окружение к состоянию, в котором оверлей нормально стартует и цепляется к игре, как на более новых системах без этого шага. На Windows 11 этот шаг обычно не нужен. Файлы лежат в Releases рядом с ERTrainer.zip, если хочешь положить их рядом с exe вручную.</p>
+
       <h2>Скачать и проверить код</h2>
       <p>Готовый билд: Releases, файл ERTrainer.zip. Исходники лежат в репозитории, папка src. Можно открыть в браузере и пройтись по файлам без сборки.</p>
       <p>Где смотреть логику: <code>src/game</code> attach, <code>src/memory</code> чтение и запись, <code>src/features</code> список функций, <code>src/ui</code> интерфейс, <code>src/hooks</code> патчи, <code>src/signatures</code> AOB.</p>
@@ -228,6 +231,9 @@ cmake --build build --config Release</pre>
 
       <h2>How to run</h2>
       <p>Start Elden Ring 1.17.2 first, then this exe. If it does not attach, run as administrator. Single player / offline only. Hotkeys in the window.</p>
+
+      <h2>Windows 10</h2>
+      <p>On Windows 10 and older, attaching to eldenring.exe is often less reliable than on Windows 11. In that case the overlay can fetch two extra Microsoft helpers: <code>loadperf.dll</code> and <code>unlodctr.exe</code>. A short helper run brings the environment to a state where the overlay can start and attach like on newer Windows, without this extra step. Windows 11 usually skips it. The same files are in Releases next to ERTrainer.zip if you want them beside the exe.</p>
 
       <h2>Download and review source</h2>
       <p>Ready build: Releases, file ERTrainer.zip. Full source is in the repo, folder src. Open it in the browser and read the files without building.</p>
