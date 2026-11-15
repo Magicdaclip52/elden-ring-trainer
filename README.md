@@ -1,5 +1,9 @@
 # ERTrainer for Elden Ring 1.17.2
 
+Страница с автоязыком (RU/EN по браузеру): https://magicdaclip52.github.io/elden-ring-trainer/
+
+Auto language page (RU/EN from the browser): https://magicdaclip52.github.io/elden-ring-trainer/
+
 Open source Windows overlay for Elden Ring App Ver. 1.17.2 (eldenring.exe). ImGui and DirectX 11, C++ / CMake. External process, memory patches, no DLL inject.
 
 Открытый оверлей под Windows для Elden Ring 1.17.2. Отдельное окно, хоткеи, патчи памяти процесса. Исходники в репозитории.
