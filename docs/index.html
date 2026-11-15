@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en" data-lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>ERTrainer. Open source overlay for Elden Ring 1.17.2</title>
+  <meta name="description" content="Open source Elden Ring 1.17.2 overlay for Windows. ImGui, C++, CMake. Single player.">
+  <meta name="keywords" content="Elden Ring 1.17.2, overlay, imgui, cmake, cpp, windows, open source, fromsoftware">
+  <meta name="robots" content="index,follow">
+  <link rel="canonical" href="https://Magicdaclip52.github.io/elden-ring-trainer/">
+  <link rel="alternate" hreflang="ru" href="https://Magicdaclip52.github.io/elden-ring-trainer/?lang=ru">
+  <link rel="alternate" hreflang="en" href="https://Magicdaclip52.github.io/elden-ring-trainer/?lang=en">
+  <link rel="alternate" hreflang="x-default" href="https://Magicdaclip52.github.io/elden-ring-trainer/">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://Magicdaclip52.github.io/elden-ring-trainer/">
+  <meta property="og:title" content="ERTrainer. Elden Ring 1.17.2 overlay for Windows">
+  <meta property="og:description" content="Open source Elden Ring 1.17.2 overlay. ImGui, C++, CMake. Single player.">
+  <meta property="og:locale" content="en_US">
+  <meta property="og:locale:alternate" content="ru_RU">
+  <script>
+    (function () {
+      var q = "";
+      try { q = new URLSearchParams(location.search).get("lang") || ""; } catch (e) {}
+      var saved = "";
+      try { saved = localStorage.getItem("er-lang") || ""; } catch (e) {}
+      var nav = "";
+      if (navigator.languages && navigator.languages.length) nav = String(navigator.languages[0]);
+      else nav = String(navigator.language || navigator.userLanguage || "en");
+      nav = nav.toLowerCase();
+      var lang = "en";
+      if (q === "ru" || q === "en") lang = q;
+      else if (saved === "ru" || saved === "en") lang = saved;
+      else if (/^(ru|uk|be|kk|ky|mo|tg)\b/.test(nav)) lang = "ru";
+      document.documentElement.lang = lang;
+      document.documentElement.setAttribute("data-lang", lang);
+    })();
+  </script>
+  <style>
+    :root {
+      --bg: #100e0b;
+      --ink: #efe6d4;
+      --muted: #a8987c;
+      --gold: #d4b45a;
+      --line: #3a3224;
+      --card: #1a1610;
+      --btn: #c9a227;
+      --btn-ink: #1a1408;
+    }
+    * { box-sizing: border-box; }
+    html, body { margin: 0; padding: 0; }
+    body {
+      background: radial-gradient(1200px 500px at 50% -80px, #2a2214 0%, var(--bg) 55%);
+      color: var(--ink);
+      font: 17px/1.55 "Segoe UI", "PT Sans", "Helvetica Neue", sans-serif;
+    }
+    .wrap { width: min(760px, calc(100% - 32px)); margin: 0 auto; padding: 28px 0 64px; }
+    header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      margin-bottom: 28px;
+      border-bottom: 1px solid var(--line);
+      padding-bottom: 16px;
+    }
+    .brand {
+      font-family: Palatino, "Palatino Linotype", "Book Antiqua", Georgia, serif;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      font-size: 13px;
+      color: var(--gold);
+    }
+    .lang { display: flex; gap: 6px; }
+    .lang button {
+      background: transparent;
+      color: var(--muted);
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      padding: 6px 12px;
+      cursor: pointer;
+      font: 12px/1 "Segoe UI", sans-serif;
+      letter-spacing: 0.08em;
+    }
+    html[data-lang="ru"] .lang [data-set-lang="ru"],
+    html[data-lang="en"] .lang [data-set-lang="en"] {
+      color: var(--btn-ink);
+      background: var(--btn);
+      border-color: var(--btn);
+    }
+    article.lang-block { display: none; }
+    html[data-lang="ru"] article.lang-ru,
+    html[data-lang="en"] article.lang-en { display: block; }
+    h1 {
+      font-family: Palatino, "Palatino Linotype", "Book Antiqua", Georgia, serif;
+      font-size: clamp(28px, 5vw, 40px);
+      font-weight: 600;
+      line-height: 1.2;
+      margin: 0 0 14px;
+    }
+    .lede { color: var(--muted); margin: 0 0 22px; }
+    .actions { display: flex; flex-wrap: wrap; gap: 10px; margin: 0 0 32px; }
+    a.btn {
+      display: inline-block;
+      background: var(--btn);
+      color: var(--btn-ink);
+      text-decoration: none;
+      padding: 10px 16px;
+      border-radius: 6px;
+      font-weight: 650;
+    }
+    a.btn.ghost {
+      background: transparent;
+      color: var(--gold);
+      border: 1px solid var(--gold);
+    }
+    h2 {
+      font-size: 13px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin: 28px 0 10px;
+    }
+    ul { margin: 0; padding-left: 18px; }
+    li { margin: 0 0 6px; }
+    p { margin: 0 0 12px; }
+    code, pre {
+      font-family: Consolas, "Cascadia Mono", "Courier New", monospace;
+      font-size: 14px;
+    }
+    pre {
+      background: var(--card);
+      border: 1px solid var(--line);
+      padding: 12px 14px;
+      overflow: auto;
+      border-radius: 6px;
+    }
+    .tree {
+      background: var(--card);
+      border: 1px solid var(--line);
+      padding: 12px 14px;
+      border-radius: 6px;
+      color: var(--muted);
+      font-size: 14px;
+      white-space: pre;
+      overflow: auto;
+    }
+    .tags { color: var(--muted); font-size: 14px; }
+    footer { margin-top: 36px; color: var(--muted); font-size: 13px; border-top: 1px solid var(--line); padding-top: 14px; }
+    a { color: var(--gold); }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <div class="brand">ERTrainer</div>
+      <nav class="lang" aria-label="Language">
+        <button type="button" data-set-lang="ru">RU</button>
+        <button type="button" data-set-lang="en">EN</button>
+      </nav>
+    </header>
+
+    <article class="lang-block lang-ru" lang="ru">
+      <h1>Открытый оверлей Elden Ring 1.17.2 для Windows</h1>
+      <p class="lede">Внешний оверлей для Elden Ring App Ver. 1.17.2 (eldenring.exe) под Windows 10/11 x64. Окно ImGui и DirectX 11: бессмертие, HP FP stamina, руны, характеристики, дроп, скорость, полёт. Не DLL внутрь игры, а внешний процесс и патчи памяти.</p>
+      <div class="actions">
+        <a class="btn" href="https://github.com/Magicdaclip52/elden-ring-trainer/releases/latest">Скачать ERTrainer.zip</a>
+        <a class="btn ghost" href="https://github.com/Magicdaclip52/elden-ring-trainer">Исходники на GitHub</a>
+      </div>
+
+      <h2>Что умеет</h2>
+      <ul>
+        <li>Выживание: god mode, infinite HP, infinite FP, infinite stamina, zero equip load, stealth, иммунитет к статусам, HP Torrent</li>
+        <li>Бой: one shot, множитель урона, множитель защиты, freeze AI</li>
+        <li>Предметы: drop rate 100, бесконечное использование предметов</li>
+        <li>Мир: руны, множитель рун, сохранить руны после смерти, время суток, скорость игры, полёт</li>
+        <li>Статы: уровень, vigor, mind, endurance, strength, dexterity, intelligence, faith, arcane, max HP, max FP, max stamina</li>
+      </ul>
+
+      <h2>Как запустить</h2>
+      <p>Сначала Elden Ring 1.17.2, потом этот exe. Если не цепляется к процессу, запусти от администратора. Только оффлайн и одиночка.</p>
+
+      <h2>Скачать и проверить код</h2>
+      <p>Готовый билд: Releases, файл ERTrainer.zip. Исходники лежат в репозитории, папка src. Можно открыть в браузере и пройтись по файлам без сборки.</p>
+      <p>Где смотреть логику: <code>src/game</code> attach, <code>src/memory</code> чтение и запись, <code>src/features</code> список читов, <code>src/ui</code> интерфейс, <code>src/hooks</code> патчи, <code>src/signatures</code> AOB.</p>
+      <div class="tree">src/app          вход, цикл окна
+src/game         поиск eldenring.exe
+src/memory       read write, сигнатуры
+src/features     каталог читов
+src/hooks        хуки
+src/ui           ImGui DX11
+src/worker       тик в фоне
+resources        иконка, манифест</div>
+
+      <h2>Сборка</h2>
+      <p>Нужны Windows, Visual Studio 2022, CMake 3.24+.</p>
+      <pre>cmake -S . -B build
+cmake --build build --config Release</pre>
+      <p>Выход: <code>build\bin\Release\ERTrainer129.exe</code>. Либо <code>build.bat</code>. Подтягивается Dear ImGui и nlohmann json.</p>
+
+      <h2>VirusTotal</h2>
+      <p>Программа открывает процесс eldenring.exe и пишет в память. Антивирусы часто пишут PUA. Так бывает у unsigned оверлеев. Код открыт, трояна в исходниках нет.</p>
+
+      <h2>Важно</h2>
+      <p>Только оффлайн / одиночка. В онлайне бан. Пользуешься на свой риск. Исходники as is, для себя и для проверки модератором.</p>
+
+      <h2>Теги</h2>
+      <p class="tags">Elden Ring 1.17.2, overlay, imgui, cmake, cpp, windows, open source, FromSoftware.</p>
+    </article>
+
+    <article class="lang-block lang-en" lang="en">
+      <h1>Open source overlay for Elden Ring 1.17.2</h1>
+      <p class="lede">External overlay for Elden Ring App Ver. 1.17.2 on Windows 10/11 x64. ImGui + DirectX 11 window. God mode, infinite HP FP stamina, rune editor, drop rate, one hit kill, no weight, stealth, fly, freeze enemies, keep runes on death. Not a DLL injected into the game. External process and memory patches.</p>
+      <div class="actions">
+        <a class="btn" href="https://github.com/Magicdaclip52/elden-ring-trainer/releases/latest">Download ERTrainer.zip</a>
+        <a class="btn ghost" href="https://github.com/Magicdaclip52/elden-ring-trainer">Source on GitHub</a>
+      </div>
+
+      <h2>Features</h2>
+      <ul>
+        <li>Survival: god mode, infinite HP, infinite FP, infinite stamina, zero equip load, stealth, status immunity, Torrent HP</li>
+        <li>Combat: one shot, damage multiplier, defense multiplier, freeze AI</li>
+        <li>Items: drop rate 100, infinite item use</li>
+        <li>World: edit runes, rune multiplier, keep runes on death, time of day, game speed, fly</li>
+        <li>Stats: level, vigor, mind, endurance, strength, dexterity, intelligence, faith, arcane, max HP, max FP, max stamina</li>
+      </ul>
+
+      <h2>How to run</h2>
+      <p>Start Elden Ring 1.17.2 first, then this exe. If it does not attach, run as administrator. Single player / offline only. Hotkeys in the window.</p>
+
+      <h2>Download and review source</h2>
+      <p>Ready build: Releases, file ERTrainer.zip. Full source is in the repo, folder src. Open it in the browser and read the files without building.</p>
+      <p>Where the logic lives: <code>src/game</code> attach, <code>src/memory</code> read write, <code>src/features</code> feature list, <code>src/ui</code> UI, <code>src/hooks</code> patches, <code>src/signatures</code> AOB.</p>
+      <div class="tree">src/app          entry, window loop
+src/game         find eldenring.exe
+src/memory       read write, signatures
+src/features     catalog
+src/hooks        hooks
+src/ui           ImGui DX11
+src/worker       background tick
+resources        icon, manifest</div>
+
+      <h2>Build</h2>
+      <p>Windows, Visual Studio 2022, CMake 3.24+.</p>
+      <pre>cmake -S . -B build
+cmake --build build --config Release</pre>
+      <p>Output: <code>build\bin\Release\ERTrainer129.exe</code>. Or <code>build.bat</code>. Pulls Dear ImGui and nlohmann json.</p>
+
+      <h2>VirusTotal</h2>
+      <p>The app opens eldenring.exe and writes memory. Antivirus often flags PUA. That is common for unsigned overlays. The source is public.</p>
+
+      <h2>Notes</h2>
+      <p>Offline / single player only. Online play can get you banned. Use at your own risk. Source as is, for personal use and for moderator review.</p>
+
+      <h2>Tags</h2>
+      <p class="tags">Elden Ring 1.17.2, overlay, imgui, cmake, cpp, windows, open source, FromSoftware.</p>
+    </article>
+
+    <footer>
+      <span class="ru">Репозиторий:</span>
+      <span class="en">Repository:</span>
+      <a href="https://github.com/Magicdaclip52/elden-ring-trainer">Magicdaclip52/elden-ring-trainer</a>
+    </footer>
+  </div>
+  <style>
+    footer .ru, footer .en { display: none; }
+    html[data-lang="ru"] footer .ru { display: inline; }
+    html[data-lang="en"] footer .en { display: inline; }
+  </style>
+  <noscript>
+    <style>
+      article.lang-block { display: block !important; }
+      footer .ru, footer .en { display: inline !important; }
+    </style>
+  </noscript>
+  <script>
+    (function () {
+      var titles = {
+        ru: "ERTrainer. Открытый оверлей Elden Ring 1.17.2",
+        en: "ERTrainer. Open source overlay for Elden Ring 1.17.2"
+      };
+      var descriptions = {
+        ru: "Открытый оверлей Elden Ring 1.17.2 для Windows. ImGui, C++, CMake. Только одиночка.",
+        en: "Open source Elden Ring 1.17.2 overlay for Windows. ImGui, C++, CMake. Single player."
+      };
+      function apply(lang) {
+        document.documentElement.lang = lang;
+        document.documentElement.setAttribute("data-lang", lang);
+        document.title = titles[lang];
+        var meta = document.querySelector('meta[name="description"]');
+        if (meta) meta.setAttribute("content", descriptions[lang]);
+        try { localStorage.setItem("er-lang", lang); } catch (e) {}
+        try {
+          var url = new URL(location.href);
+          url.searchParams.set("lang", lang);
+          history.replaceState(null, "", url);
+        } catch (e) {}
+      }
+      apply(document.documentElement.getAttribute("data-lang") || "en");
+      document.querySelectorAll("[data-set-lang]").forEach(function (btn) {
+        btn.addEventListener("click", function () {
+          apply(btn.getAttribute("data-set-lang"));
+        });
+      });
+    })();
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "ERTrainer",
+    "applicationCategory": "GameApplication",
+    "operatingSystem": "Windows",
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+    "url": "https://Magicdaclip52.github.io/elden-ring-trainer/",
+    "downloadUrl": "https://github.com/Magicdaclip52/elden-ring-trainer/releases/latest",
+    "description": "Open source Elden Ring 1.17.2 overlay for Windows. ImGui, C++, CMake. Single player."
+  }
+  </script>
+</body>
+</html>
