@@ -17,6 +17,8 @@
   <meta property="og:description" content="Elden Ring 1.17.2 overlay: infinite runes, HP, stamina, drop, fly, stats. Open source ImGui. Single player.">
   <meta property="og:locale" content="en_US">
   <meta property="og:locale:alternate" content="ru_RU">
+  <meta property="og:image" content="https://magicdaclip52.github.io/elden-ring-trainer/images/ss-survival.png">
+  <meta property="og:video" content="https://www.youtube.com/watch?v=_Eo2SsMdgLk">
   <script>
     (function () {
       var q = "";
@@ -145,6 +147,41 @@
       overflow: auto;
     }
     .tags { color: var(--muted); font-size: 14px; }
+    .media { margin: 0 0 28px; }
+    .media-title {
+      font-size: 13px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin: 0 0 12px;
+    }
+    .media-title .ru, .media-title .en { display: none; }
+    html[data-lang="ru"] .media-title .ru { display: inline; }
+    html[data-lang="en"] .media-title .en { display: inline; }
+    .video-wrap {
+      position: relative;
+      width: 100%;
+      padding-top: 56.25%;
+      margin: 0 0 14px;
+      background: #000;
+      border: 1px solid var(--line);
+      border-radius: 6px;
+      overflow: hidden;
+    }
+    .video-wrap iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
+    .shots {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+    }
+    .shots img {
+      width: 100%;
+      height: auto;
+      display: block;
+      border: 1px solid var(--line);
+      border-radius: 6px;
+    }
+    @media (max-width: 640px) { .shots { grid-template-columns: 1fr; } }
     footer { margin-top: 36px; color: var(--muted); font-size: 13px; border-top: 1px solid var(--line); padding-top: 14px; }
     a { color: var(--gold); }
   </style>
@@ -158,6 +195,22 @@
         <button type="button" data-set-lang="en">EN</button>
       </nav>
     </header>
+
+    <section class="media" aria-label="Video and screenshots">
+      <h2 class="media-title">
+        <span class="ru">Видео и скриншоты</span>
+        <span class="en">Video and screenshots</span>
+      </h2>
+      <div class="video-wrap">
+        <iframe src="https://www.youtube-nocookie.com/embed/_Eo2SsMdgLk" title="ERTrainer Elden Ring 1.17.2 overlay" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen loading="lazy"></iframe>
+      </div>
+      <div class="shots">
+        <img src="images/ss-survival.png" alt="Survival: immortality, infinite HP FP stamina, stealth">
+        <img src="images/ss-combat-world.png" alt="Combat and world: damage multiplier, fly, game speed">
+        <img src="images/ss-items.png" alt="Items: drop rate, runes, flasks">
+        <img src="images/ss-stats.png" alt="Stats editor: level, vigor, mind, endurance">
+      </div>
+    </section>
 
     <article class="lang-block lang-ru" lang="ru">
       <h1>Оверлей Elden Ring 1.17.2 для Windows. Бессмертие, руны, характеристики</h1>
@@ -321,7 +374,20 @@ cmake --build build --config Release</pre>
     "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
     "url": "https://Magicdaclip52.github.io/elden-ring-trainer/",
     "downloadUrl": "https://github.com/Magicdaclip52/elden-ring-trainer/releases/latest",
-    "description": "Elden Ring 1.17.2 overlay for Windows. Infinite runes, HP, stamina, drop, fly, stats editor. Open source ImGui. Single player."
+    "description": "Elden Ring 1.17.2 overlay for Windows. Infinite runes, HP, stamina, drop, fly, stats editor. Open source ImGui. Single player.",
+    "screenshot": [
+      "https://magicdaclip52.github.io/elden-ring-trainer/images/ss-survival.png",
+      "https://magicdaclip52.github.io/elden-ring-trainer/images/ss-combat-world.png",
+      "https://magicdaclip52.github.io/elden-ring-trainer/images/ss-items.png",
+      "https://magicdaclip52.github.io/elden-ring-trainer/images/ss-stats.png"
+    ],
+    "video": {
+      "@type": "VideoObject",
+      "name": "ERTrainer Elden Ring 1.17.2 overlay",
+      "embedUrl": "https://www.youtube-nocookie.com/embed/_Eo2SsMdgLk",
+      "contentUrl": "https://www.youtube.com/watch?v=_Eo2SsMdgLk",
+      "thumbnailUrl": "https://img.youtube.com/vi/_Eo2SsMdgLk/maxresdefault.jpg"
+    }
   }
   </script>
 </body>

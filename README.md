@@ -8,6 +8,30 @@ Open source overlay for Elden Ring App Ver. 1.17.2 (eldenring.exe) on Windows 10
 
 Открытый оверлей Elden Ring 1.17.2 для Windows. Бессмертие, бесконечные руны, бесконечное хп, бесконечная выносливость, дроп 100, полёт, редактор характеристик, скорость игры. Отдельное окно, хоткеи, исходники в репозитории. Только одиночка и оффлайн.
 
+## Video
+
+[![ERTrainer Elden Ring 1.17.2 overlay](https://img.youtube.com/vi/_Eo2SsMdgLk/maxresdefault.jpg)](https://www.youtube.com/watch?v=_Eo2SsMdgLk)
+
+https://www.youtube.com/watch?v=_Eo2SsMdgLk
+
+## Screenshots / скриншоты
+
+Survival / выживание:
+
+![Survival functions](docs/images/ss-survival.png)
+
+Combat and world / бой и мир:
+
+![Combat and world](docs/images/ss-combat-world.png)
+
+Items / предметы:
+
+![Items](docs/images/ss-items.png)
+
+Stats / характеристики:
+
+![Stats editor](docs/images/ss-stats.png)
+
 ## Features / возможности
 
 Survival: immortality, infinite HP, infinite FP, infinite stamina, zero equip load, stealth, status immunity, Torrent HP.
