@@ -4,6 +4,8 @@
 
 Auto language page (RU/EN from the browser): https://magicdaclip52.github.io/elden-ring-trainer/
 
+[![VGTimes Elden Ring 1.17.2](docs/images/btn-vgtimes.svg)](https://vgtimes.com/games/elden-ring/files/100249-trainer-45-1.17.2.html)
+
 Open source overlay for Elden Ring App Ver. 1.17.2 (eldenring.exe) on Windows 10/11 x64. ImGui + DirectX 11. Infinite HP, FP, stamina, runes, drop rate, fly, stats editor, game speed. External process, memory patches, no DLL inject. Single player / offline.
 
 Открытый оверлей Elden Ring 1.17.2 для Windows. Бессмертие, бесконечные руны, бесконечное хп, бесконечная выносливость, дроп 100, полёт, редактор характеристик, скорость игры. Отдельное окно, хоткеи, исходники в репозитории. Только одиночка и оффлайн.
