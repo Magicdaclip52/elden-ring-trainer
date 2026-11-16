@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="268" height="40" viewBox="0 0 268 40" role="img" aria-label="itch.io Elden Ring 1.17.2">
+  <defs>
+    <linearGradient id="gold" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#e2c575"/>
+      <stop offset="1" stop-color="#c9a227"/>
+    </linearGradient>
+  </defs>
+  <rect width="268" height="40" rx="8" fill="#1a1610" stroke="#3a3224"/>
+  <rect x="1" y="1" width="92" height="38" rx="7" fill="url(#gold)"/>
+  <text x="47" y="26" text-anchor="middle" font-family="Georgia, Palatino, serif" font-size="13" font-weight="700" fill="#1a1408">itch.io</text>
+  <text x="178" y="26" text-anchor="middle" font-family="Segoe UI, Helvetica, sans-serif" font-size="13" fill="#efe6d4">Elden Ring 1.17.2</text>
+</svg>
