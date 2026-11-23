@@ -43,7 +43,7 @@ Combat: one shot, damage multiplier, defense multiplier, freeze AI.
 
 Items: drop rate 100, infinite item use.
 
-World: rune editor, rune multiplier, keep runes on death, time of day, game speed, fly.
+World: rune editor, rune multiplier, keep runes on death, time of day, game speed, fly, torrent anywhere, skip fog walls.
 
 Stats: level, vigor, mind, endurance, strength, dexterity, intelligence, faith, arcane, max HP, max FP, max stamina.
 
