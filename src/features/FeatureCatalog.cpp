@@ -195,6 +195,10 @@ const std::vector<FeatureInfo>& featureCatalog() {
          {false, false, false, VK_F9}},
         {"invisibility", "Невидимость", "INVISIBILITY", FeatureGroup::Survival, FeatureKind::Toggle,
          {false, false, false, VK_F10}},
+        {"torrent_anywhere", "Поток в подземельях", "TORRENT ANYWHERE", FeatureGroup::World, FeatureKind::Toggle,
+         {false, false, true, VK_NUMPAD1}},
+        {"skip_fog", "Проход сквозь туман", "SKIP FOG WALLS", FeatureGroup::World, FeatureKind::Toggle,
+         {false, false, true, VK_NUMPAD2}},
     };
     static bool tuned = false;
     if (!tuned) {
